@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Abstractions", "Domain.Abstractions\Domain.Abstractions.csproj", "{FD0A07D4-FCFD-4EF3-8E9D-17C5471C4869}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Game", "Domain.Game\Domain.Game.csproj", "{CA05DCBA-CA6D-4EE1-B345-7F5CA0E7B955}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Players", "Domain.Players\Domain.Players.csproj", "{E771CB03-5068-4381-B53B-9DD40F5075F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD0A07D4-FCFD-4EF3-8E9D-17C5471C4869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD0A07D4-FCFD-4EF3-8E9D-17C5471C4869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD0A07D4-FCFD-4EF3-8E9D-17C5471C4869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD0A07D4-FCFD-4EF3-8E9D-17C5471C4869}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA05DCBA-CA6D-4EE1-B345-7F5CA0E7B955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA05DCBA-CA6D-4EE1-B345-7F5CA0E7B955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA05DCBA-CA6D-4EE1-B345-7F5CA0E7B955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA05DCBA-CA6D-4EE1-B345-7F5CA0E7B955}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E771CB03-5068-4381-B53B-9DD40F5075F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E771CB03-5068-4381-B53B-9DD40F5075F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E771CB03-5068-4381-B53B-9DD40F5075F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E771CB03-5068-4381-B53B-9DD40F5075F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
