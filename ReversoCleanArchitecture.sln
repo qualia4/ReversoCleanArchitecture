@@ -8,7 +8,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reverso.Domain.Players", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reverso.Application", "Reverso.Application\Reverso.Application.csproj", "{73439147-60AC-4354-B268-6C73CD088970}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reverso.Web.Presentation", "Reverso.Web.Presentation\Reverso.Web.Presentation.csproj", "{C4A07046-AEB4-4620-A78E-5306B22C9BC9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reverso.Presentation", "Reverso.Presentation\Reverso.Presentation.csproj", "{17A36AEF-60E5-4265-95C5-7F4923A25719}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,9 +32,9 @@ Global
 		{73439147-60AC-4354-B268-6C73CD088970}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73439147-60AC-4354-B268-6C73CD088970}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73439147-60AC-4354-B268-6C73CD088970}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C4A07046-AEB4-4620-A78E-5306B22C9BC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C4A07046-AEB4-4620-A78E-5306B22C9BC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C4A07046-AEB4-4620-A78E-5306B22C9BC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C4A07046-AEB4-4620-A78E-5306B22C9BC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17A36AEF-60E5-4265-95C5-7F4923A25719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A36AEF-60E5-4265-95C5-7F4923A25719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A36AEF-60E5-4265-95C5-7F4923A25719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A36AEF-60E5-4265-95C5-7F4923A25719}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
