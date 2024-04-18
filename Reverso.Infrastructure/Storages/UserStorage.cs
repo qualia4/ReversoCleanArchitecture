@@ -15,9 +15,8 @@ public class UserStorage: IUserStorage
     {
         if (Database.UserExists(user.Username))
         {
-            return false; // User already exists
+            return false;
         }
-
         Database.AddUser(user);
         return true;
     }

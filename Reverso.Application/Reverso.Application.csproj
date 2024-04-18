@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Reverso.Domain.Players\Reverso.Domain.Players.csproj" />
       <ProjectReference Include="..\Reverso.Domain.Web\Reverso.Domain.Web.csproj" />
     </ItemGroup>
 

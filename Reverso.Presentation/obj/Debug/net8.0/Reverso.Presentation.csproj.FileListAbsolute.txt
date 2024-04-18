@@ -44,3 +44,5 @@
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Web.pdb
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Infrastructure.dll
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Infrastructure.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Players.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Players.pdb

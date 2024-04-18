@@ -10,6 +10,7 @@ public static class DependencyInjection
         // Register all infrastructure services here
         services.AddScoped<IUserStorage, UserStorage>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
+        services.AddScoped<ILobbyStorage, LobbyStorage>();
 
         return services;
     }

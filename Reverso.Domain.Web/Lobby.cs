@@ -10,11 +10,14 @@ public class Lobby
     public List<Message> Chat { get; private set; }
     public List<LobbyPlayer> Players { get; set; }
     public bool IsStarted = false;
+    public bool IsPublic;
 
-    public Lobby()
+    public Lobby(bool isPublic)
     {
         GameId = Guid.NewGuid();
         Game = new ReversoGame();
+        IsPublic = isPublic;
+        Players = new List<LobbyPlayer>();
     }
 
     public void AddPlayer(LobbyPlayer player)

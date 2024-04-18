@@ -36,7 +36,7 @@ public class LoginUserUseCase : IRequestHandler<LoginUserCommand, LoginUserResul
         }
         var hashedPassword = passwordHasher.HashPassword(request.Password);
         var user = userStorage.FindByUsernameAsync(request.Username).Result;
-        if (user.HashedPassword == hashedPassword)
+        if (user.ComparePassword(hashedPassword))
         {
             return new LoginUserResult {UserExists = true, UserLogedIn = true, Username = user.Username};
         }

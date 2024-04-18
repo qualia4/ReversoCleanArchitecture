@@ -47,6 +47,7 @@
       "Reverso.Application/1.0.0": {
         "dependencies": {
           "MediatR": "12.2.0",
+          "Reverso.Domain.Players": "1.0.0",
           "Reverso.Domain.Web": "1.0.0"
         },
         "runtime": {
@@ -64,6 +65,14 @@
         },
         "runtime": {
           "Reverso.Domain.Game.dll": {}
+        }
+      },
+      "Reverso.Domain.Players/1.0.0": {
+        "dependencies": {
+          "Reverso.Domain.Abstractions": "1.0.0"
+        },
+        "runtime": {
+          "Reverso.Domain.Players.dll": {}
         }
       },
       "Reverso.Domain.Web/1.0.0": {
@@ -114,6 +123,11 @@
       "sha512": ""
     },
     "Reverso.Domain.Game/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reverso.Domain.Players/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
