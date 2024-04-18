@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Reverso.Application\Reverso.Application.csproj" />
+      <ProjectReference Include="..\Reverso.Domain.Game\Reverso.Domain.Game.csproj" />
+      <ProjectReference Include="..\Reverso.Domain.Web\Reverso.Domain.Web.csproj" />
+    </ItemGroup>
+
+</Project>
