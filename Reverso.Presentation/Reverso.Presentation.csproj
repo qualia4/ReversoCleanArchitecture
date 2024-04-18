@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Reverso.Application\Reverso.Application.csproj" />
+      <ProjectReference Include="..\Reverso.Infrastructure\Reverso.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

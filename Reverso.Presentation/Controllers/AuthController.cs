@@ -7,10 +7,41 @@ namespace Reverso.Presentation.Controllers;
 [ApiController]
 public class AuthController: ControllerBase
 {
-    private Mediator mediator;
-    [HttpPost("user")]
-    public async Task<IActionResult> RegisterUser(string name)
+    private readonly IMediator mediator;
+
+    public AuthController(IMediator _mediator)
     {
-        return Ok("Not implemented");
+        this.mediator = _mediator;
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> RegisterUser(RegisterUserCommand command)
+    {
+        var result = await mediator.Send(command);
+        if (!result.UserCreated) return Conflict(result.Message);
+        else return Ok(result);
+    }
+
+    [HttpPost("login")]
+    public async Task<IActionResult> LoginUser(LoginUserCommand command)
+    {
+        var result = await mediator.Send(command);
+        if (!result.UserExists) return Conflict(result.Message);
+        if (!result.UserLogedIn) return Conflict(result.Message);
+        else
+        {
+            return Ok(result);
+        }
+    }
+
+    [HttpGet("getUsers")]
+    public async Task<IActionResult> GetUsers()
+    {
+        var result = await mediator.Send(new GetAllUsersCommand());
+        if (result.UsersEmpty) return BadRequest("There are no users");
+        else
+        {
+            return Ok(result.Users);
+        }
     }
 }

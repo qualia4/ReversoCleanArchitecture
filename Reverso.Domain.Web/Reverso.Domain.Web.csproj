@@ -4,15 +4,10 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Application</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Reverso.Domain.Web\Reverso.Domain.Web.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="MediatR" Version="12.2.0" />
+      <ProjectReference Include="..\Reverso.Domain.Game\Reverso.Domain.Game.csproj" />
     </ItemGroup>
 
 </Project>

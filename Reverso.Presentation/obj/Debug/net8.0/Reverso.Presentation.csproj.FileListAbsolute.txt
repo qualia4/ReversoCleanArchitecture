@@ -36,3 +36,11 @@
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Application.pdb
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/MediatR.dll
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/MediatR.Contracts.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Abstractions.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Game.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Web.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Abstractions.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Game.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Web.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Infrastructure.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Infrastructure.pdb

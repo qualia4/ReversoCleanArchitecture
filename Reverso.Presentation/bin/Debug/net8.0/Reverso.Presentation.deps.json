@@ -11,6 +11,7 @@
           "MediatR": "12.2.0",
           "Microsoft.AspNetCore.OpenApi": "8.0.1",
           "Reverso.Application": "1.0.0",
+          "Reverso.Infrastructure": "1.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -97,8 +98,43 @@
         }
       },
       "Reverso.Application/1.0.0": {
+        "dependencies": {
+          "MediatR": "12.2.0",
+          "Reverso.Domain.Web": "1.0.0"
+        },
         "runtime": {
           "Reverso.Application.dll": {}
+        }
+      },
+      "Reverso.Domain.Abstractions/1.0.0": {
+        "runtime": {
+          "Reverso.Domain.Abstractions.dll": {}
+        }
+      },
+      "Reverso.Domain.Game/1.0.0": {
+        "dependencies": {
+          "Reverso.Domain.Abstractions": "1.0.0"
+        },
+        "runtime": {
+          "Reverso.Domain.Game.dll": {}
+        }
+      },
+      "Reverso.Domain.Web/1.0.0": {
+        "dependencies": {
+          "Reverso.Domain.Game": "1.0.0"
+        },
+        "runtime": {
+          "Reverso.Domain.Web.dll": {}
+        }
+      },
+      "Reverso.Infrastructure/1.0.0": {
+        "dependencies": {
+          "Reverso.Application": "1.0.0",
+          "Reverso.Domain.Game": "1.0.0",
+          "Reverso.Domain.Web": "1.0.0"
+        },
+        "runtime": {
+          "Reverso.Infrastructure.dll": {}
         }
       }
     }
@@ -180,6 +216,26 @@
       "hashPath": "swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
     },
     "Reverso.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reverso.Domain.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reverso.Domain.Game/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reverso.Domain.Web/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reverso.Infrastructure/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
