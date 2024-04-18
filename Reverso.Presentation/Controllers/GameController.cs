@@ -28,4 +28,20 @@ public class GameController: ControllerBase
         }
         return Ok(result);
     }
+
+    [HttpGet("lobbies")]
+    public async Task<IActionResult> GetAllLobbies()
+    {
+        var result = await mediator.Send(new GetAllLobbiesCommand());
+        if (result.LobbiesEmpty) return BadRequest("There are no lobbies");
+        return Ok(result.Lobbies);
+    }
+
+    [HttpGet("waitingForPlayer/{lobbyId}")]
+    public async Task<IActionResult> WaitingForPlayer([FromRoute]Guid lobbyId)
+    {
+        var result = await mediator.Send(new WaitingForPlayerCommand{LobbyId = lobbyId});
+        if (!result.GameStarted) return BadRequest(result.Message);
+        return Ok(result);
+    }
 }

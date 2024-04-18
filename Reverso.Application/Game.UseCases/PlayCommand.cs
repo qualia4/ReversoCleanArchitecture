@@ -38,7 +38,7 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
         if (request.GameType.ToLower() == "pve")
         {
             Lobby lobby = await CreatePvE(request.Username);
-            return new PlayResult {GameStarted = true, LobbyId = lobby.GameId};
+            return new PlayResult {NewLobbyCreated = true, GameStarted = true, LobbyId = lobby.GameId};
         }
         else if(request.GameType.ToLower() == "pvp")
         {

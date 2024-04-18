@@ -10,4 +10,5 @@ public interface ILobbyStorage
     Task<Lobby?> FindByLobbyIdAsync(Guid lobbyID);
     Task<List<Lobby>> GetAllLobbies();
     Task<Lobby?> FindLobbyToJoinAsync();
+    Task<bool> IsStarted(Guid lobbyId);
 }

@@ -41,4 +41,9 @@ public class LobbyStorage: ILobbyStorage
     {
         return Database.FindLobbyToJoin();
     }
+
+    public Task<bool> IsStarted(Guid lobbyId)
+    {
+        return Database.IsLobbyStarted(lobbyId);
+    }
 }

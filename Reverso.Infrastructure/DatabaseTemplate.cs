@@ -87,6 +87,12 @@ public class DatabaseTemplate
         return Task.FromResult(lobby);
     }
 
+    public Task<bool> IsLobbyStarted(Guid id)
+    {
+        Lobbies.TryGetValue(id, out var lobby);
+        return Task.FromResult(lobby.IsStarted);
+    }
+
     public Task<Lobby?> FindLobbyToJoin()
     {
         if (IsLobbiesEmpty())

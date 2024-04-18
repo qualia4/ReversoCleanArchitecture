@@ -7,17 +7,18 @@ public class Lobby
 {
     public Guid GameId { get; set; }
     public ReversoGame Game { get; private set; }
+    public bool IsPublic;
+    public bool IsStarted = false;
     public List<Message> Chat { get; private set; }
     public List<LobbyPlayer> Players { get; set; }
-    public bool IsStarted = false;
-    public bool IsPublic;
 
     public Lobby(bool isPublic)
     {
         GameId = Guid.NewGuid();
-        Game = new ReversoGame();
+        Game = new ReversoGameWithEvents();
         IsPublic = isPublic;
         Players = new List<LobbyPlayer>();
+        Chat = new List<Message>();
     }
 
     public void AddPlayer(LobbyPlayer player)
