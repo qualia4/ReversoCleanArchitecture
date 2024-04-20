@@ -17,7 +17,7 @@ public class UserStorage: IUserStorage
         {
             return false;
         }
-        Database.AddUser(user);
+        await Database.AddUser(user);
         return true;
     }
 

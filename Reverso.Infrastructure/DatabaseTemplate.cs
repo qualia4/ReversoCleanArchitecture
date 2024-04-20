@@ -9,14 +9,16 @@ public class DatabaseTemplate
     private static readonly ConcurrentDictionary<Guid, Lobby> Lobbies = new();
     private static readonly ConcurrentDictionary<string, User> Users = new();
 
-    public void AddLobby(Lobby lobbyToAdd)
+    public Task AddLobby(Lobby lobbyToAdd)
     {
         Lobbies[lobbyToAdd.GameId] = lobbyToAdd;
+        return Task.CompletedTask;
     }
 
-    public void AddUser(User userToAdd)
+    public Task AddUser(User userToAdd)
     {
         Users[userToAdd.Username] = userToAdd;
+        return Task.CompletedTask;
     }
 
     public Task<User?> GetUserByUsername(string username)
@@ -110,6 +112,30 @@ public class DatabaseTemplate
             }
         }
         return Task.FromResult<Lobby?>(null);
+    }
+
+    public async Task<Cell[,]> GetFieldByLobbyId(Guid lobbyId)
+    {
+        Lobbies.TryGetValue(lobbyId, out var lobby);
+        return await lobby.GetField();
+    }
+
+    public async Task<Dictionary<string, int>> GetPointsByLobbyId(Guid lobbyId)
+    {
+        Lobbies.TryGetValue(lobbyId, out var lobby);
+        return await lobby.GetPoints();
+    }
+
+    public async Task<bool> CheckIfEndedByLobbyId(Guid lobbyId)
+    {
+        Lobbies.TryGetValue(lobbyId, out var lobby);
+        return await lobby.GetEnded();
+    }
+
+    public async Task<string> GetCurrentPlayerNameByLobbyId(Guid lobbyId)
+    {
+        Lobbies.TryGetValue(lobbyId, out var lobby);
+        return await lobby.GetCurrentPlayerName();
     }
 
 }

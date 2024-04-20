@@ -44,4 +44,13 @@ public class GameController: ControllerBase
         if (!result.GameStarted) return BadRequest(result.Message);
         return Ok(result);
     }
+
+    [HttpGet("getGameInfo/{lobbyId}")]
+    public async Task<IActionResult> GetGameInfo([FromRoute] Guid lobbyId)
+    {
+        var result = await mediator.Send(new GetGameInfoCommand{LobbyId = lobbyId});
+        if (!result.LobbyExists) return BadRequest("Such lobby does not exist");
+        if (!result.LobbyStarted) return BadRequest("Lobby is not started");
+        return Ok(result);
+    }
 }

@@ -1,5 +1,6 @@
 using Application;
 using Reverso.Domain.Web;
+using Domain.Game;
 namespace Reverso.Infrastructure;
 
 public class LobbyStorage: ILobbyStorage
@@ -11,10 +12,9 @@ public class LobbyStorage: ILobbyStorage
         Database = _db;
     }
 
-    public async Task<bool> AddAsync(Lobby lobby)
+    public async Task AddAsync(Lobby lobby)
     {
-        Database.AddLobby(lobby);
-        return true;
+        await Database.AddLobby(lobby);
     }
 
     public async Task<bool> LobbyExists(Guid lobbyID)
@@ -27,9 +27,14 @@ public class LobbyStorage: ILobbyStorage
         return Database.IsLobbiesEmpty();
     }
 
+    public async Task<bool> IsLobbyStarted(Guid lobbyID)
+    {
+        return await Database.IsLobbyStarted(lobbyID);
+    }
+
     public async Task<Lobby?> FindByLobbyIdAsync(Guid lobbyID)
     {
-        return Database.GetLobbyById(lobbyID).Result;
+        return await Database.GetLobbyById(lobbyID);
     }
 
     public async Task<List<Lobby>> GetAllLobbies()
@@ -45,5 +50,25 @@ public class LobbyStorage: ILobbyStorage
     public Task<bool> IsStarted(Guid lobbyId)
     {
         return Database.IsLobbyStarted(lobbyId);
+    }
+
+    public async Task<Cell[,]> GetFieldByLobbyId(Guid lobbyId)
+    {
+        return await Database.GetFieldByLobbyId(lobbyId);
+    }
+
+    public async Task<Dictionary<string, int>> GetPointsByLobbyId(Guid lobbyId)
+    {
+        return await Database.GetPointsByLobbyId(lobbyId);
+    }
+
+    public async Task<bool> CheckIfEndedByLobbyId(Guid lobbyId)
+    {
+        return await Database.CheckIfEndedByLobbyId(lobbyId);
+    }
+
+    public async Task<string> GetCurrentPlayerNameByLobbyId(Guid lobbyId)
+    {
+        return await Database.GetCurrentPlayerNameByLobbyId(lobbyId);
     }
 }

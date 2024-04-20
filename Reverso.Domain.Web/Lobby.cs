@@ -23,13 +23,20 @@ public class Lobby
 
     public void AddPlayer(LobbyPlayer player)
     {
-        if (Players.Count() < 2)
+        switch (Players.Count())
         {
-            Players.Add(player);
-        }
-        else
-        {
-            throw new Exception("Lobby already full");
+            case 0:
+                Players.Add(player);
+                return;
+            case 1:
+                if (Players[0].Username != player.Username)
+                {
+                    Players.Add(player);
+                    return;
+                }
+                throw new Exception("You can not play with yourself");
+            case 2:
+                throw new Exception("Lobby already full");
         }
     }
 
@@ -58,6 +65,26 @@ public class Lobby
         {
             throw new Exception("Game has not been started");
         }
+    }
+
+    public Task<Cell[,]> GetField()
+    {
+        return Task.FromResult(Game.GetField());
+    }
+
+    public Task<Dictionary<string, int>> GetPoints()
+    {
+        return Task.FromResult(Game.GetPoints());
+    }
+
+    public Task<bool> GetEnded()
+    {
+        return Task.FromResult(Game.Ended);
+    }
+
+    public Task<string> GetCurrentPlayerName()
+    {
+        return Task.FromResult(Game.GetCurrentPlayerName());
     }
 }
 

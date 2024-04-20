@@ -7,8 +7,8 @@ public class ReversoGame : ITwoPlayerGame
     private Player? SecondPlayer;
     private Player? CurrentPlayer { get; set; }
     private ReversoField ReversoGameField { get; } = new ReversoField();
-    private bool Ended { get; set; }
-    protected Cell[,] GetField() => ReversoGameField.GetCells();
+    public bool Ended { get; private set; }
+    public Cell[,] GetField() => ReversoGameField.GetCells();
 
     public async Task MakeMove()
     {
@@ -47,7 +47,7 @@ public class ReversoGame : ITwoPlayerGame
         EndGame();
     }
 
-    protected Dictionary<string, int> GetPoints()
+    public Dictionary<string, int> GetPoints()
     {
         CheckGameStarted();
         var players = new Dictionary<string, int>()
@@ -106,6 +106,12 @@ public class ReversoGame : ITwoPlayerGame
     public bool GetEnded()
     {
         return Ended;
+    }
+
+    public string GetCurrentPlayerName()
+    {
+        CheckGameStarted();
+        return CurrentPlayer.GetName();
     }
 
 }
