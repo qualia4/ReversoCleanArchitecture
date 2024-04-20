@@ -2,5 +2,5 @@ namespace Domain.Abstractions;
 
 public interface ITwoPlayerStartable
 {
-    public void StartGame(Player firstPlayer, Player secondPlayer);
+    public Task StartGame(Player firstPlayer, Player secondPlayer);
 }

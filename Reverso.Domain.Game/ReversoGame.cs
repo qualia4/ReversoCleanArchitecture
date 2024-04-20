@@ -10,7 +10,7 @@ public class ReversoGame : ITwoPlayerGame
     public bool Ended { get; private set; }
     public Cell[,] GetField() => ReversoGameField.GetCells();
 
-    public async Task MakeMove()
+    public virtual async Task MakeMove()
     {
         CheckGameStarted();
         await ChangeField();
@@ -26,7 +26,7 @@ public class ReversoGame : ITwoPlayerGame
         ReversoGameField.ChangeValid(CurrentPlayer);
     }
 
-    public virtual void StartGame(Player firstPlayer, Player secondPlayer)
+    public virtual Task StartGame(Player firstPlayer, Player secondPlayer)
     {
         Ended = false;
         FirstPlayer = firstPlayer;
@@ -35,6 +35,7 @@ public class ReversoGame : ITwoPlayerGame
         secondPlayer.ResetPoints();
         CurrentPlayer = firstPlayer;
         ReversoGameField.Initialize(firstPlayer, secondPlayer);
+        return Task.CompletedTask;
     }
 
     private void CheckGameEnd()
@@ -58,10 +59,11 @@ public class ReversoGame : ITwoPlayerGame
         return players;
     }
 
-    protected virtual void EndGame()
+    protected virtual Task EndGame()
     {
         CheckGameStarted();
         Ended = true;
+        return Task.CompletedTask;
     }
 
     private void RedistributePoints(int points)

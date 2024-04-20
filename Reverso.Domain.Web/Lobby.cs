@@ -7,8 +7,8 @@ public class Lobby
 {
     public Guid GameId { get; set; }
     public ReversoGameWithEvents Game { get; private set; }
-    public bool IsPublic;
-    public bool IsStarted = false;
+    public readonly bool IsPublic;
+    public bool IsStarted { get; private set; }
     public List<Message> Chat { get; private set; }
     public List<LobbyPlayer> Players { get; set; }
 
@@ -17,8 +17,16 @@ public class Lobby
         GameId = Guid.NewGuid();
         Game = new ReversoGameWithEvents();
         IsPublic = isPublic;
+        IsStarted = false;
         Players = new List<LobbyPlayer>();
         Chat = new List<Message>();
+        ListenTo();
+    }
+
+    private void ListenTo()
+    {
+        Game.GameEnded += OnGameEnded;
+        Game.CanMakeMove += OnCanMakeMove;
     }
 
     public void AddPlayer(LobbyPlayer player)
@@ -50,12 +58,12 @@ public class Lobby
         {
             Player firstPlayer = Players[0].Player;
             Player secondPlayer = Players[1].Player;
-            Game.StartGame(firstPlayer, secondPlayer);
             IsStarted = true;
+            Game.StartGame(firstPlayer, secondPlayer);
         }
     }
 
-    public async Task MakeMove()
+    private async void OnCanMakeMove()
     {
         if (IsStarted)
         {
@@ -63,8 +71,13 @@ public class Lobby
         }
         else
         {
-            throw new Exception("Game has not been started");
+            throw new Exception("Lobby has not been started");
         }
+    }
+
+    private void OnGameEnded((string, int)? winner)
+    {
+        throw new NotImplementedException();
     }
 
     public Task<Cell[,]> GetField()

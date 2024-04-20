@@ -5,7 +5,9 @@ public class HumanMoveHandler: IInputHandler
 {
     public Task<int[]> GetPlayerCoords(IGameField reversoGameField, string username)
     {
-        while(true)
-        { }
+        while (true)
+        {
+            Console.WriteLine("...");
+        }
     }
 }
