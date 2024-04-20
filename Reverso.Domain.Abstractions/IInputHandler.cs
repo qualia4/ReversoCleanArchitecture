@@ -2,5 +2,5 @@ namespace Domain.Abstractions;
 
 public interface IInputHandler
 {
-    public int[] GetPlayerCoords(IGameField reversoGameField);
+    public Task<int[]> GetPlayerCoords(IGameField reversoGameField, string username);
 }

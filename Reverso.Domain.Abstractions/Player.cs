@@ -36,6 +36,6 @@ public abstract class Player: IHasName
         return Name;
     }
 
-    public abstract int MakeMoveOnField(IGameField gameField);
+    public abstract Task<int> MakeMoveOnField(IGameField gameField);
 
 }

@@ -6,7 +6,7 @@ namespace Reverso.Domain.Web;
 public class Lobby
 {
     public Guid GameId { get; set; }
-    public ReversoGame Game { get; private set; }
+    public ReversoGameWithEvents Game { get; private set; }
     public bool IsPublic;
     public bool IsStarted = false;
     public List<Message> Chat { get; private set; }
@@ -48,11 +48,11 @@ public class Lobby
         }
     }
 
-    public void MakeMove()
+    public async Task MakeMove()
     {
         if (IsStarted)
         {
-            Game.MakeMove();
+            await Game.MakeMove();
         }
         else
         {

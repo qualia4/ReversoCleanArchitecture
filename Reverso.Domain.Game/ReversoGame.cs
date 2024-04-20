@@ -10,17 +10,17 @@ public class ReversoGame : ITwoPlayerGame
     private bool Ended { get; set; }
     protected Cell[,] GetField() => ReversoGameField.GetCells();
 
-    public void MakeMove()
+    public async Task MakeMove()
     {
         CheckGameStarted();
-        ChangeField();
+        await ChangeField();
         CheckGameEnd();
     }
 
-    protected virtual void ChangeField()
+    protected virtual async Task ChangeField()
     {
         CheckGameStarted();
-        int pointsToChange = CurrentPlayer.MakeMoveOnField(ReversoGameField);
+        int pointsToChange = await CurrentPlayer.MakeMoveOnField(ReversoGameField);
         RedistributePoints(pointsToChange);
         SwitchPlayer();
         ReversoGameField.ChangeValid(CurrentPlayer);

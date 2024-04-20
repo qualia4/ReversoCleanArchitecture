@@ -3,8 +3,8 @@ namespace Application;
 
 public class HumanMoveHandler: IInputHandler
 {
-    public int[] GetPlayerCoords(IGameField reversoGameField)
+    public Task<int[]> GetPlayerCoords(IGameField reversoGameField, string username)
     {
-        return new []{1, 1};
+        return Task.FromResult(new []{1, 1});
     }
 }

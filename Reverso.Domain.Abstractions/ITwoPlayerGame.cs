@@ -2,6 +2,6 @@ namespace Domain.Abstractions;
 
 public interface ITwoPlayerGame: ITwoPlayerStartable
 {
-    public void MakeMove();
+    public Task MakeMove();
     public bool GetEnded();
 }

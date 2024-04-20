@@ -11,10 +11,10 @@ public class AIPlayer: Player
         this.makeDelay = makeDelay;
     }
 
-    public override int MakeMoveOnField(IGameField gameReversoField)
+    public override Task<int> MakeMoveOnField(IGameField gameReversoField)
     {
         int[] coordinates = GenerateRandomMove(gameReversoField);
-        return gameReversoField.ChangeField(coordinates[0], coordinates[1], this);
+        return Task.FromResult(gameReversoField.ChangeField(coordinates[0], coordinates[1], this));
     }
 
     private int[] GenerateRandomMove(IGameField gameReversoField)

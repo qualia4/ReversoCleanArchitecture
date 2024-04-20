@@ -9,9 +9,9 @@ public class HumanPlayer : Player
         _inputHandler = inputHandler;
     }
 
-    public override int MakeMoveOnField(IGameField gameField)
+    public async override Task<int> MakeMoveOnField(IGameField gameField)
     {
-        int[] coordinates = _inputHandler.GetPlayerCoords(gameField);
+        int[] coordinates =  await _inputHandler.GetPlayerCoords(gameField, this.GetName());
         return gameField.ChangeField(coordinates[0], coordinates[1], this);
     }
 }

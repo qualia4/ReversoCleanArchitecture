@@ -20,9 +20,9 @@ public class ReversoGameWithEvents : ReversoGame
         GameStarted?.Invoke();
     }
 
-    protected override void ChangeField()
+    protected override async Task ChangeField()
     {
-        base.ChangeField();
+        await base.ChangeField();
         FieldUpdated?.Invoke(GetField());
         PointsUpdated?.Invoke(GetPoints());
     }
