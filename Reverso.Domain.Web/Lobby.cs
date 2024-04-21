@@ -75,9 +75,9 @@ public class Lobby
         }
     }
 
-    private void OnGameEnded((string, int)? winner)
+    private void OnGameEnded(Dictionary<string, int> points)
     {
-        throw new NotImplementedException();
+        GlobalWeb.ResultNotifier.InvokeEvent(points);
     }
 
     public Task<Cell[,]> GetField()

@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using Application;
 using Domain.Game;
 using Reverso.Domain.Web;
 
@@ -8,6 +9,49 @@ public class DatabaseTemplate
 {
     private static readonly ConcurrentDictionary<Guid, Lobby> Lobbies = new();
     private static readonly ConcurrentDictionary<string, User> Users = new();
+
+    public DatabaseTemplate()
+    {
+        GlobalWeb.ResultNotifier.GameEnded += RecalculateStats;
+    }
+
+    private void RecalculateStats(Dictionary<string, int> points)
+    {
+        if (points.Count == 0)
+        {
+            Console.WriteLine("No points data available.");
+            return;
+        }
+
+        string winner = "";
+        string loser = "";
+        int maxPoints = int.MinValue;
+        int minPoints = int.MaxValue;
+        foreach (var user in points)
+        {
+            if (user.Value > maxPoints)
+            {
+                maxPoints = user.Value;
+                winner = user.Key;
+            }
+            if (user.Value < minPoints)
+            {
+                minPoints = user.Value;
+                loser = user.Key;
+            }
+        }
+
+        Users.TryGetValue(winner, out var winnerUser);
+        Users.TryGetValue(loser, out var loserUser);
+        if (maxPoints == minPoints)
+        {
+            winnerUser.AddDraw();
+            loserUser.AddDraw();
+            return;
+        }
+        winnerUser.AddVictory();
+        loserUser.AddLoss();
+    }
 
     public Task AddLobby(Lobby lobbyToAdd)
     {

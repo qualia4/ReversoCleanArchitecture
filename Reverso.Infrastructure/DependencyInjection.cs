@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using Application;
+using Reverso.Domain.Web;
 
 namespace Reverso.Infrastructure;
 
@@ -11,7 +12,6 @@ public static class DependencyInjection
         services.AddScoped<IUserStorage, UserStorage>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
         services.AddScoped<ILobbyStorage, LobbyStorage>();
-
         return services;
     }
 }

@@ -5,6 +5,7 @@ public class HumanMoveHandler: IInputHandler
 {
     private readonly MoveEndpointListener _listener;
     private TaskCompletionSource<(int, int)> _moveTaskSource = new TaskCompletionSource<(int, int)>();
+    private bool waiting;
     public string HumanUsername { get; private set; }
 
     public HumanMoveHandler(string username)
@@ -12,11 +13,12 @@ public class HumanMoveHandler: IInputHandler
         _listener = GlobalResources.EndpointListener;
         _listener.MoveEndpointReceived += OnMoveReceived;
         HumanUsername = username;
+        waiting = false;
     }
 
     private void OnMoveReceived((int, int) coordinates, string username)
     {
-        if (username == HumanUsername)
+        if (waiting && username == HumanUsername)
         {
             _moveTaskSource.TrySetResult((coordinates.Item1, coordinates.Item2));
         }
@@ -26,8 +28,10 @@ public class HumanMoveHandler: IInputHandler
     {
         while (true)
         {
-            Console.WriteLine("Waiting for + " + HumanUsername + " move...");
+            Console.WriteLine("Waiting for " + HumanUsername + " move...");
+            waiting = true;
             var result = await _moveTaskSource.Task;
+            waiting = false;
             _moveTaskSource = new TaskCompletionSource<(int, int)>();
             var x = result.Item1;
             var y = result.Item2;
