@@ -4,18 +4,12 @@ using System;
 
 public class ReversoGameWithEvents : ReversoGame
 {
-    public event Action? GameStarted;
     public event Action? CanMakeMove;
-    public event Action<Cell[,]>? FieldUpdated;
     public event Action<Dictionary<string, int>?>? GameEnded;
-    public event Action<Dictionary<string, int>>? PointsUpdated;
 
-    public override async Task StartGame(Player firstPlayer, Player secondPlayer)
+    public override async void StartGame(Player firstPlayer, Player secondPlayer)
     {
-        await base.StartGame(firstPlayer, secondPlayer);
-        FieldUpdated?.Invoke(GetField());
-        PointsUpdated?.Invoke(GetPoints());
-        GameStarted?.Invoke();
+        base.StartGame(firstPlayer, secondPlayer);
         await Task.Run(() => CanMakeMove?.Invoke());
     }
 
@@ -24,13 +18,6 @@ public class ReversoGameWithEvents : ReversoGame
         await base.MakeMove();
         if(!GetEnded())
             await Task.Run(() => CanMakeMove?.Invoke());
-    }
-
-    protected override async Task ChangeField()
-    {
-        await base.ChangeField();
-        FieldUpdated?.Invoke(GetField());
-        PointsUpdated?.Invoke(GetPoints());
     }
 
     protected override async Task EndGame()

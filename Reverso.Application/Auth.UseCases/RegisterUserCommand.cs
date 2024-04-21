@@ -29,10 +29,8 @@ public class RegisterUserUseCase : IRequestHandler<RegisterUserCommand, Register
 
     public async Task<RegisterUserResult> Handle(RegisterUserCommand request, CancellationToken cancellationToken)
     {
-        if (await userStorage.UserExists(request.Username))
-        {
+        if (await userStorage.UserExists(request.Username) || request.Username == "BOT")
             return new RegisterUserResult {UserCreated = false, Message = "User already exists."};
-        }
         var hashedPassword = passwordHasher.HashPassword(request.Password);
         var user = new User(request.Username, hashedPassword);
         await userStorage.AddAsync(user);

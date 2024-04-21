@@ -16,7 +16,7 @@ builder.Services.AddApplicationServices();
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblyContaining<Application.RegisterUserCommand>());
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssemblyContaining<Reverso.Presentation.Controllers.AuthController>());
+    cfg.RegisterServicesFromAssemblyContaining<Reverso.Presentation.Controllers.UserController>());
 
 var app = builder.Build();
 

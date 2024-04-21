@@ -26,6 +26,11 @@ public class UserStorage: IUserStorage
         return Database.UserExists(username);
     }
 
+    public async Task<User> GetUserByUsername(string username)
+    {
+        return await Database.GetUserByUsername(username);
+    }
+
     public async Task<bool> IsUsersEmpty()
     {
         return Database.IsUsersEmpty();
