@@ -176,10 +176,22 @@ public class DatabaseTemplate
         return await lobby.GetEnded();
     }
 
+    public async Task<List<Message>> GetChatByLobbyId(Guid lobbyId)
+    {
+        Lobbies.TryGetValue(lobbyId, out var lobby);
+        return lobby.Chat;
+    }
+
     public async Task<string> GetCurrentPlayerNameByLobbyId(Guid lobbyId)
     {
         Lobbies.TryGetValue(lobbyId, out var lobby);
         return await lobby.GetCurrentPlayerName();
+    }
+
+    public async Task<bool> AddMessageByLobbyid(Guid lobbyId, string username, string text)
+    {
+        Lobbies.TryGetValue(lobbyId, out var lobby);
+        return await lobby.AddMessage(username, text);
     }
 
 }

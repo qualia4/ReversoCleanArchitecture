@@ -67,8 +67,18 @@ public class LobbyStorage: ILobbyStorage
         return await Database.CheckIfEndedByLobbyId(lobbyId);
     }
 
+    public async Task<List<Message>> GetChatByLobbyId(Guid lobbyId)
+    {
+        return await Database.GetChatByLobbyId(lobbyId);
+    }
+
     public async Task<string> GetCurrentPlayerNameByLobbyId(Guid lobbyId)
     {
         return await Database.GetCurrentPlayerNameByLobbyId(lobbyId);
+    }
+
+    public async Task<bool> AddMessageByLobbyId(Guid lobbyId, string username, string text)
+    {
+        return await Database.AddMessageByLobbyid(lobbyId, username, text);
     }
 }

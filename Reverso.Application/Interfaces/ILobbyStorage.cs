@@ -14,7 +14,9 @@ public interface ILobbyStorage
     Task<bool> IsLobbiesEmpty();
     Task<bool> IsLobbyStarted(Guid lobbyID);
     Task<Lobby?> FindByLobbyIdAsync(Guid lobbyID);
+    Task<List<Message>> GetChatByLobbyId(Guid lobbyId);
     Task<List<Lobby>> GetAllLobbies();
     Task<Lobby?> FindLobbyToJoinAsync();
     Task<bool> IsStarted(Guid lobbyId);
+    Task<bool> AddMessageByLobbyId(Guid lobbyId, string username, string text);
 }

@@ -2,18 +2,14 @@ namespace Reverso.Domain.Web;
 
 public class Message
 {
-    public Guid Id { get; private set; }
-    public Guid GameId { get; private set; }
-    public Guid UserId { get; private set; }
+    public string Username { get; private set; }
     public string Text { get; private set; }
     public string Time { get; private set; }
 
-    public Message(Guid gameId, Guid userId, string text)
+    public Message(string username, string text)
     {
-        Id = Guid.NewGuid();
-        GameId = gameId;
-        UserId = userId;
+        Username = username;
         Text = text;
-        Time = DateTime.Now.TimeOfDay.ToString();
+        Time = DateTime.Now.ToString("HH:mm");
     }
 }

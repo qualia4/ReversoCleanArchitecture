@@ -23,6 +23,19 @@ public class Lobby
         ListenTo();
     }
 
+    public Task<bool> AddMessage(string username, string text)
+    {
+        foreach (var player in Players)
+        {
+            if (player.Username == username)
+            {
+                Chat.Add(new Message(username, text));
+                return Task.FromResult(true);
+            }
+        }
+        return Task.FromResult(false);
+    }
+
     private void ListenTo()
     {
         Game.GameEnded += OnGameEnded;
