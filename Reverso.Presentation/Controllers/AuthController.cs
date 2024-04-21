@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace Reverso.Presentation.Controllers;
 
 [ApiController]
-public class UserController: ControllerBase
+public class AuthController: ControllerBase
 {
     private readonly IMediator mediator;
 
-    public UserController(IMediator _mediator)
+    public AuthController(IMediator _mediator)
     {
         this.mediator = _mediator;
     }
@@ -31,17 +31,6 @@ public class UserController: ControllerBase
         else
         {
             return Ok(result);
-        }
-    }
-
-    [HttpGet("getUserInfo/{username}")]
-    public async Task<IActionResult> GetUser([FromRoute] string username)
-    {
-        var result = await mediator.Send(new GetUserInfoCommand{Username = username});
-        if (!result.UserFound) return BadRequest("There is no such user in the database");
-        else
-        {
-            return Ok(result.User);
         }
     }
 

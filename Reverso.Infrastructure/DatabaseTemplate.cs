@@ -45,12 +45,12 @@ public class DatabaseTemplate
         Users.TryGetValue(loser, out var loserUser);
         if (maxPoints == minPoints)
         {
-            winnerUser?.AddDraw();
-            loserUser?.AddDraw();
+            winnerUser.AddDraw();
+            loserUser.AddDraw();
             return;
         }
-        winnerUser?.AddVictory();
-        loserUser?.AddLoss();
+        winnerUser.AddVictory();
+        loserUser.AddLoss();
     }
 
     public Task AddLobby(Lobby lobbyToAdd)

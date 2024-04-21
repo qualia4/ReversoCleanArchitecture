@@ -9,5 +9,4 @@ public interface IUserStorage
     Task<bool> IsUsersEmpty();
     Task<User?> FindByUsernameAsync(string username);
     Task<List<User>> GetAllUsers();
-    Task<User> GetUserByUsername(string username);
 }
