@@ -48,7 +48,6 @@ public class GetGameInfoUseCase : IRequestHandler<GetGameInfoCommand, GetGameInf
     private string[][] ConvertFieldToString(Cell[,] field)
     {
         int fieldSize = field.GetLength(0);
-        Console.WriteLine(fieldSize);
         string[][] parsedField = new string[fieldSize][];
         for (int i = 0; i < fieldSize; i++)
         {

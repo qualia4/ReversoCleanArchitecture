@@ -36,6 +36,11 @@ public class UserStorage: IUserStorage
         return Database.GetAllUsers();
     }
 
+    public async Task<User> GetUserByUsername(string username)
+    {
+        return await Database.GetUserByUsername(username);
+    }
+
     public Task<User?> FindByUsernameAsync(string username)
     {
         return Database.GetUserByUsername(username);

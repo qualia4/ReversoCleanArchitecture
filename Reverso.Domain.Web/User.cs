@@ -4,6 +4,7 @@ public class User
 {
     public string Username { get; private set; }
     private string HashedPassword { get; set; }
+    public int GamesPlayed { get; private set; }
     public int Draws { get; private set; }
     public int GamesWon { get; private set; }
     public int GamesLost { get; private set; }
@@ -15,11 +16,13 @@ public class User
         Draws = 0;
         GamesWon = 0;
         GamesLost = 0;
+        GamesPlayed = 0;
     }
 
     public void AddLoss()
     {
         GamesLost++;
+        GamesPlayed++;
     }
 
     public bool ComparePassword(string passwordToCompare)
@@ -34,10 +37,12 @@ public class User
     public void AddVictory()
     {
         GamesWon++;
+        GamesPlayed++;
     }
 
     public void AddDraw()
     {
         Draws++;
+        GamesPlayed++;
     }
 }

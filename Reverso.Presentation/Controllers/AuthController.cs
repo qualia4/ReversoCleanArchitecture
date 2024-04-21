@@ -34,6 +34,17 @@ public class AuthController: ControllerBase
         }
     }
 
+    [HttpGet("getUserInfo/{username}")]
+    public async Task<IActionResult> GetUser([FromRoute] string username)
+    {
+        var result = await mediator.Send(new GetUserInfoCommand{Username = username});
+        if (!result.UserFound) return BadRequest("There is no such user in the database");
+        else
+        {
+            return Ok(result.User);
+        }
+    }
+
     [HttpGet("getUsers")]
     public async Task<IActionResult> GetUsers()
     {
