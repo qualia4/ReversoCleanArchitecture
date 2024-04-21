@@ -29,6 +29,13 @@ public class GameController: ControllerBase
         return Ok(result);
     }
 
+    [HttpPost("makeMove")]
+    public async Task<IActionResult> MakeMove(MakeMoveCommand command)
+    {
+        var result = await mediator.Send(command);
+        return Ok(result);
+    }
+
     [HttpGet("lobbies")]
     public async Task<IActionResult> GetAllLobbies()
     {

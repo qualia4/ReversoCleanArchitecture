@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Reverso.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c06118165bed8fd004bf77d9abec4ad22c284772")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8080d4bbf645fcfda7f15cfe194ae3d5e445a95")]
 [assembly: System.Reflection.AssemblyProductAttribute("Reverso.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Reverso.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

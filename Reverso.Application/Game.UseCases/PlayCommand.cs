@@ -48,7 +48,7 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
                 Lobby lobby = await CreatePvP(request.Username);
                 return new PlayResult {NewLobbyCreated = true, GameStarted = false, LobbyId = lobby.GameId};
             }
-            lobbyToJoin.AddPlayer(new LobbyPlayer(request.Username, new HumanPlayer(request.Username, new HumanMoveHandler())));
+            lobbyToJoin.AddPlayer(new LobbyPlayer(request.Username, new HumanPlayer(request.Username, new HumanMoveHandler(request.Username))));
             lobbyToJoin.StartGame();
             return new PlayResult {GameStarted = true, LobbyId = lobbyToJoin.GameId};
         }
@@ -58,7 +58,7 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
     private async Task<Lobby> CreatePvE(string playerUsername)
     {
         Lobby lobby = new Lobby(false);
-        lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler())));
+        lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler(playerUsername))));
         lobby.AddPlayer(new LobbyPlayer("BOT", new AIPlayer("BOT")));
         lobby.StartGame();
         await lobbyStorage.AddAsync(lobby);
@@ -68,7 +68,7 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
     private async Task<Lobby> CreatePvP(string playerUsername)
     {
         Lobby lobby = new Lobby(true);
-        lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler())));
+        lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler(playerUsername))));
         await lobbyStorage.AddAsync(lobby);
         return lobby;
     }
