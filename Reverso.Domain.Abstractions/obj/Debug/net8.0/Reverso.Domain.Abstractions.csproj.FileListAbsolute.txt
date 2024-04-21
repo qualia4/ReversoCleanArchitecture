@@ -1,0 +1,12 @@
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/bin/Debug/net8.0/Reverso.Domain.Abstractions.deps.json
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/bin/Debug/net8.0/Reverso.Domain.Abstractions.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/bin/Debug/net8.0/Reverso.Domain.Abstractions.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.GeneratedMSBuildEditorConfig.editorconfig
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.AssemblyInfoInputs.cache
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.AssemblyInfo.cs
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.csproj.CoreCompileInputs.cache
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.sourcelink.json
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/refint/Reverso.Domain.Abstractions.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/Reverso.Domain.Abstractions.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Abstractions/obj/Debug/net8.0/ref/Reverso.Domain.Abstractions.dll

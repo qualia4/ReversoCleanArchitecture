@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "5ujI9RAuPl85jVF10n4E/X6DNrBzP/SZwayTxg5T1ccAynf3DCi57fedtBFVbJ+Z480McUsacTpb5utQm29hWA==",
+  "success": true,
+  "projectFilePath": "/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Application/Reverso.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/qualiaaa/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
+    "/Users/qualiaaa/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
+    "/Users/qualiaaa/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

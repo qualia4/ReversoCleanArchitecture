@@ -1,0 +1,16 @@
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/bin/Debug/net8.0/Reverso.Domain.Players.deps.json
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/bin/Debug/net8.0/Reverso.Domain.Players.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/bin/Debug/net8.0/Reverso.Domain.Players.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/bin/Debug/net8.0/Reverso.Domain.Abstractions.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/bin/Debug/net8.0/Reverso.Domain.Abstractions.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.csproj.AssemblyReference.cache
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.GeneratedMSBuildEditorConfig.editorconfig
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.AssemblyInfoInputs.cache
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.AssemblyInfo.cs
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.csproj.CoreCompileInputs.cache
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.sourcelink.json
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.csproj.CopyComplete
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/refint/Reverso.Domain.Players.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/Reverso.Domain.Players.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Players/obj/Debug/net8.0/ref/Reverso.Domain.Players.dll

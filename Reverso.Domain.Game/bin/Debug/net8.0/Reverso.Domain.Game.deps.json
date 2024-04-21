@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Reverso.Domain.Game/1.0.0": {
+        "dependencies": {
+          "Reverso.Domain.Abstractions": "1.0.0"
+        },
+        "runtime": {
+          "Reverso.Domain.Game.dll": {}
+        }
+      },
+      "Reverso.Domain.Abstractions/1.0.0": {
+        "runtime": {
+          "Reverso.Domain.Abstractions.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Reverso.Domain.Game/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Reverso.Domain.Abstractions/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
