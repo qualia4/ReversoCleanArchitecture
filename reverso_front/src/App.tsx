@@ -1,3 +1,7 @@
+import LoginPage from "./pages/LoginPage/LoginPage";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import WaitingPage from "./pages/WaitingPage/WaitingPage";
+import GamePage from "./pages/GamePage/GamePage";
 
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
