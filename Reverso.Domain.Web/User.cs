@@ -26,6 +26,7 @@ public class User
     {
         GamesLost++;
         GamesPlayed++;
+        Console.WriteLine("Lost added " + Username);
     }
 
     public bool ComparePassword(string passwordToCompare)
@@ -41,11 +42,13 @@ public class User
     {
         GamesWon++;
         GamesPlayed++;
+        Console.WriteLine("Victory added " + Username);
     }
 
     public void AddDraw()
     {
         Draws++;
         GamesPlayed++;
+        Console.WriteLine("Draw added " + Username);
     }
 }

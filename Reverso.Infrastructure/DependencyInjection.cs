@@ -9,9 +9,9 @@ public static class DependencyInjection
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, string mongoConnectionString, string dbName)
     {
         services.AddSingleton<MongoDbContext>(provider => new MongoDbContext(mongoConnectionString, dbName));
-        services.AddScoped<IUserStorage, MongoUserStorage>();
+        services.AddSingleton<IUserStorage, MongoUserStorage>();
+        services.AddSingleton<ILobbyStorage, LobbyStorage>();
         services.AddScoped<IPasswordHasher, PasswordHasher>();
-        services.AddScoped<ILobbyStorage, LobbyStorage>();
         return services;
     }
 }
