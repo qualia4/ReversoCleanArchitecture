@@ -18,7 +18,7 @@ public class MinimaxAIPlayer : Player
         var bestMove = Minimax(gameField, MaxDepth, true, int.MinValue, int.MaxValue).Move;
         if (makeDelay)
         {
-            int delay = rand.Next(1, 3);
+            int delay = rand.Next(1, 2);
             Thread.Sleep((int)TimeSpan.FromSeconds(delay).TotalMilliseconds);
         }
         if (bestMove != null)
