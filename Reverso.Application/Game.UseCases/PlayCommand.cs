@@ -40,6 +40,16 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
             Lobby lobby = await CreatePvE(request.Username);
             return new PlayResult {NewLobbyCreated = true, GameStarted = true, LobbyId = lobby.GameId};
         }
+        else if (request.GameType.ToLower() == "pvmm")
+        {
+            Lobby lobby = await CreateMinimax(request.Username);
+            return new PlayResult {NewLobbyCreated = true, GameStarted = true, LobbyId = lobby.GameId};
+        }
+        else if (request.GameType.ToLower() == "evmm")
+        {
+            Lobby lobby = await CreateEvMM();
+            return new PlayResult {NewLobbyCreated = true, GameStarted = true, LobbyId = lobby.GameId};
+        }
         else if(request.GameType.ToLower() == "pvp")
         {
             var lobbyToJoin = lobbyStorage.FindLobbyToJoinAsync().Result;
@@ -60,6 +70,26 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
         Lobby lobby = new Lobby(false);
         lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler(playerUsername))));
         lobby.AddPlayer(new LobbyPlayer("BOT", new AIPlayer("BOT")));
+        lobby.StartGame();
+        await lobbyStorage.AddAsync(lobby);
+        return lobby;
+    }
+
+    private async Task<Lobby> CreateMinimax(string playerUsername)
+    {
+        Lobby lobby = new Lobby(false);
+        lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler(playerUsername))));
+        lobby.AddPlayer(new LobbyPlayer("MMBOT", new MinimaxAIPlayer("MMBOT")));
+        lobby.StartGame();
+        await lobbyStorage.AddAsync(lobby);
+        return lobby;
+    }
+
+    private async Task<Lobby> CreateEvMM()
+    {
+        Lobby lobby = new Lobby(false);
+        lobby.AddPlayer(new LobbyPlayer("BOT", new AIPlayer("BOT")));
+        lobby.AddPlayer(new LobbyPlayer("MMBOT", new MinimaxAIPlayer("MMBOT")));
         lobby.StartGame();
         await lobbyStorage.AddAsync(lobby);
         return lobby;

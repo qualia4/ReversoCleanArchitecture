@@ -55,6 +55,12 @@ const ProfilePage: React.FC = () => {
                 <button onClick={() => handlePlayClick("pve")}>Play PvE</button>
             </p>
             <p>
+                <button onClick={() => handlePlayClick("pvmm")}>Play Minimax</button>
+            </p>
+            <p>
+                <button onClick={() => handlePlayClick("evmm")}>Test Minimax</button>
+            </p>
+            <p>
                 <button onClick={handleShowStatsClick}>Show Stats</button>
             </p>
             {showStatsModal && (

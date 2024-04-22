@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Reverso.Domain.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bf9674bca355ff56cbfa6b86ee4ebdf2130f70ef")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+629f1e89fb9ba741166dbbbbebc631856c7b66cf")]
 [assembly: System.Reflection.AssemblyProductAttribute("Reverso.Domain.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Reverso.Domain.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

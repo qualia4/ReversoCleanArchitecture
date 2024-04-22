@@ -71,12 +71,12 @@ public class ReversoGame : ITwoPlayerGame
         if (CurrentPlayer == FirstPlayer)
         {
             SecondPlayer?.RemovePoints(points);
-            FirstPlayer?.AddPoints(points);
+            FirstPlayer?.AddPoints(points + 1);
             return;
         }
 
         FirstPlayer?.RemovePoints(points);
-        SecondPlayer?.AddPoints(points);
+        SecondPlayer?.AddPoints(points + 1);
     }
 
     public (string, int)? GetWinner()

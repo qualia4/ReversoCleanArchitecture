@@ -120,7 +120,6 @@ public class ReversoField: IGameField
     private void MarkCell(int x, int y, Player CurrentPlayer)
     {
         Cells[x, y].Rehost(CurrentPlayer);
-        CurrentPlayer.AddPoints(1);
     }
 
     private int FlipPiecesInDirection(int startX, int startY, int dx, int dy, Player CurrentPlayer)
@@ -153,6 +152,32 @@ public class ReversoField: IGameField
             }
         }
         return false;
+    }
+
+    public IGameField DeepClone()
+    {
+        var newField = new ReversoField();
+        for (int x = 0; x < FieldSize; x++)
+        {
+            for (int y = 0; y < FieldSize; y++)
+            {
+                if (!Cells[x, y].IfEmpty)
+                {
+                    newField.Cells[x, y].Rehost(Cells[x, y].GetHost());
+                    newField.Cells[x, y].SetValid(Cells[x, y].IfValid);
+                }
+            }
+        }
+        return newField;
+    }
+
+    public Player GetHost(int x, int y)
+    {
+        if (IsInBounds(x, y) && !Cells[x, y].IfEmpty)
+        {
+            return Cells[x, y].GetHost() as Player;
+        }
+        return null;
     }
 
     public Cell[,] GetCells()

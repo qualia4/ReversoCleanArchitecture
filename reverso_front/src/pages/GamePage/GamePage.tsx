@@ -19,24 +19,9 @@ const GamePage: React.FC = () => {
     const [chat, setChat] = useState<ChatMessage[]>([]);
     const [message, setMessage] = useState("");
     const [error, setError] = useState<string | null>(null);
-    const [intervalId, setIntervalId] = useState<number | null>(null);
-
-    // Define fetchChat outside useEffect to make it available globally
-    const fetchChat = async () => {
-        try {
-            const chatData = await getChatService(jsonData.lobbyIDJSON);
-            setChat(chatData);
-        } catch (err) {
-            console.error("Failed to fetch chat.", err);
-        }
-    };
+    const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        if (!jsonData?.lobbyIDJSON || !jsonData?.usernameJSON) {
-            navigate("/profile");
-            return;
-        }
-
         const fetchGameInfo = async () => {
             try {
                 const data = await getGameInfo(jsonData.lobbyIDJSON);
@@ -47,17 +32,32 @@ const GamePage: React.FC = () => {
             }
         };
 
+        const fetchChat = async () => {
+            try {
+                const chatData = await getChatService(jsonData.lobbyIDJSON);
+                setChat(chatData);
+            } catch (err) {
+                console.error("Failed to fetch chat.", err);
+            }
+        };
+
+        if (!jsonData?.lobbyIDJSON || !jsonData?.usernameJSON) {
+            navigate("/profile");
+            return;
+        }
+
         fetchGameInfo();
         fetchChat();
-        const id = window.setInterval(() => {
+        const id = setInterval(() => {
             fetchGameInfo();
             fetchChat();
         }, 500);
         setIntervalId(id);
 
+        // Cleanup function to clear the interval when component unmounts
         return () => {
-            if (intervalId) clearInterval(intervalId);
-        }
+            clearInterval(id);
+        };
     }, [jsonData, navigate]);
 
     const handleMove = async (x: number, y: number) => {
@@ -76,7 +76,8 @@ const GamePage: React.FC = () => {
             try {
                 await writeMessageService(jsonData.lobbyIDJSON, jsonData.usernameJSON, message);
                 setMessage(""); // Clear message input after sending
-                await fetchChat(); // Refetch chat to show new messages
+                const chatData = await getChatService(jsonData.lobbyIDJSON);
+                setChat(chatData);
             } catch (err) {
                 console.error("Failed to send message.", err);
             }
