@@ -6,7 +6,7 @@ public class MinimaxAIPlayer : Player
 {
     private readonly Random rand = new Random();
     private readonly bool makeDelay;
-    private const int MaxDepth = 3;
+    private const int MaxDepth = 5;
 
     public MinimaxAIPlayer(string name, bool makeDelay = true) : base(name)
     {
@@ -16,8 +16,11 @@ public class MinimaxAIPlayer : Player
     public override Task<int> MakeMoveOnField(IGameField gameField)
     {
         var bestMove = Minimax(gameField, MaxDepth, true, int.MinValue, int.MaxValue).Move;
-        int delay = rand.Next(1, 3);
-        Thread.Sleep((int)TimeSpan.FromSeconds(delay).TotalMilliseconds);
+        if (makeDelay)
+        {
+            int delay = rand.Next(1, 3);
+            Thread.Sleep((int)TimeSpan.FromSeconds(delay).TotalMilliseconds);
+        }
         if (bestMove != null)
         {
             return Task.FromResult(gameField.ChangeField(bestMove.Value.xCoord, bestMove.Value.yCoord, this));
