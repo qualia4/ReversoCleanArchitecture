@@ -8,62 +8,6 @@ namespace Reverso.Infrastructure;
 public class DatabaseTemplate
 {
     private static readonly ConcurrentDictionary<Guid, Lobby> Lobbies = new();
-    private static readonly ConcurrentDictionary<string, User> Users = new();
-
-    public DatabaseTemplate()
-    {
-        GlobalWeb.ResultNotifier.GameEnded += RecalculateStats;
-    }
-
-    private void RecalculateStats(Dictionary<string, int> points)
-    {
-        if (points.Count == 0)
-        {
-            Console.WriteLine("No points data available.");
-            return;
-        }
-
-        string winner = "";
-        string loser = "";
-        int maxPoints = int.MinValue;
-        int minPoints = int.MaxValue;
-        foreach (var user in points)
-        {
-            if (user.Value > maxPoints)
-            {
-                maxPoints = user.Value;
-                winner = user.Key;
-            }
-            if (user.Value < minPoints)
-            {
-                minPoints = user.Value;
-                loser = user.Key;
-            }
-        }
-
-        Users.TryGetValue(winner, out var winnerUser);
-        Users.TryGetValue(loser, out var loserUser);
-        if (winnerUser != null)
-        {
-            if (maxPoints == minPoints)
-            {
-                winnerUser.AddDraw();
-                loserUser.AddDraw();
-                return;
-            }
-            winnerUser.AddVictory();
-            loserUser.AddLoss();
-        }
-        else
-        {
-            if (maxPoints == minPoints)
-            {
-                loserUser.AddDraw();
-                return;
-            }
-            loserUser.AddLoss();
-        }
-    }
 
     public Task AddLobby(Lobby lobbyToAdd)
     {
@@ -71,39 +15,9 @@ public class DatabaseTemplate
         return Task.CompletedTask;
     }
 
-    public Task AddUser(User userToAdd)
-    {
-        Users[userToAdd.Username] = userToAdd;
-        return Task.CompletedTask;
-    }
-
-    public Task<User?> GetUserByUsername(string username)
-    {
-        Users.TryGetValue(username, out var user);
-        return Task.FromResult(user);
-    }
-
-    public bool UserExists(string username)
-    {
-        if (Users.ContainsKey(username))
-        {
-            return true;
-        }
-        return false;
-    }
-
     public bool LobbyExists(Guid lobbyID)
     {
         if (Lobbies.ContainsKey(lobbyID))
-        {
-            return true;
-        }
-        return false;
-    }
-
-    public bool IsUsersEmpty()
-    {
-        if (Users.Count == 0)
         {
             return true;
         }
@@ -117,16 +31,6 @@ public class DatabaseTemplate
             return true;
         }
         return false;
-    }
-
-    public List<User> GetAllUsers()
-    {
-        List<User> result = new List<User>();
-        foreach (var user in Users)
-        {
-            result.Add(user.Value);
-        }
-        return result;
     }
 
     public List<Lobby> GetAllLobbies()

@@ -1,9 +1,12 @@
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 namespace Reverso.Domain.Web;
 
 public class User
 {
+    [BsonId]
     public string Username { get; private set; }
-    private string HashedPassword { get; set; }
+    public string HashedPassword { get; private set; }
     public int GamesPlayed { get; private set; }
     public int Draws { get; private set; }
     public int GamesWon { get; private set; }

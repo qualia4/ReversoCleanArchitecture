@@ -10,4 +10,8 @@
       <ProjectReference Include="..\Reverso.Domain.Game\Reverso.Domain.Game.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Bson" Version="2.25.0" />
+    </ItemGroup>
+
 </Project>

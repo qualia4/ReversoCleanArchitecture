@@ -10,7 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<DatabaseTemplate>();
-builder.Services.AddInfrastructureServices();
+var mongoConfiguration = builder.Configuration.GetSection("MongoConnection");
+builder.Services.AddInfrastructureServices(mongoConfiguration["ConnectionString"], mongoConfiguration["DatabaseName"]);
 builder.Services.AddApplicationServices();
 
 builder.Services.AddMediatR(cfg =>
@@ -39,7 +40,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseRouting(); // Make sure routing is set up before applying CORS
+app.UseRouting();
 app.UseCors("AllowSpecificOrigin");
 
 app.MapControllers();

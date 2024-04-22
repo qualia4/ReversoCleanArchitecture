@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "kx4E5vgZAY/RyJLdxM5FVbC1SIQwNQbUykFR2Sq8oUlmW9K8IxZxSZ6FEpdz2VgH4rWDJHfOIVae8i9zPKdX/A==",
+  "dgSpecHash": "exPK35vUfFT2JF7+AIVGYLLphLPOwA9xzA/HQiyEHZWMqbgfc+Bq+wRH5KmVhjbOdpEZxiSowIlR8n6SyiPg0g==",
   "success": true,
   "projectFilePath": "/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Domain.Web/Reverso.Domain.Web.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/qualiaaa/.nuget/packages/mongodb.bson/2.25.0/mongodb.bson.2.25.0.nupkg.sha512",
+    "/Users/qualiaaa/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
+    "/Users/qualiaaa/.nuget/packages/system.runtime.compilerservices.unsafe/5.0.0/system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

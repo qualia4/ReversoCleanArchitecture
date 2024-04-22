@@ -46,3 +46,16 @@
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Infrastructure.pdb
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Players.dll
 /Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Reverso.Domain.Players.pdb
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/AWSSDK.Core.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/AWSSDK.SecurityToken.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/DnsClient.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/MongoDB.Bson.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/MongoDB.Driver.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/MongoDB.Driver.Core.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/MongoDB.Libmongocrypt.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/SharpCompress.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/Snappier.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/ZstdSharp.dll
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/runtimes/linux/native/libmongocrypt.so
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/runtimes/osx/native/libmongocrypt.dylib
+/Users/qualiaaa/RiderProjects/ReversoCleanArchitecture/Reverso.Presentation/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll

@@ -11,7 +11,24 @@ public class GetUserInfoCommand: IRequest<GetUserInfoResult>
 public class GetUserInfoResult
 {
     public bool UserFound { get; set; }
-    public User User { get; set; }
+    public UserToShow User { get; set; }
+}
+
+public class UserToShow
+{
+    public UserToShow(User user)
+    {
+        Username = user.Username;
+        GamesPlayed = user.GamesPlayed;
+        Draws = user.Draws;
+        GamesWon = user.GamesWon;
+        GamesLost = user.GamesLost;
+    }
+    public string Username { get; private set; }
+    public int GamesPlayed { get; private set; }
+    public int Draws { get; private set; }
+    public int GamesWon { get; private set; }
+    public int GamesLost { get; private set; }
 }
 
 public class GetUserInfoUseCase : IRequestHandler<GetUserInfoCommand, GetUserInfoResult>
@@ -29,6 +46,8 @@ public class GetUserInfoUseCase : IRequestHandler<GetUserInfoCommand, GetUserInf
         {
             return new GetUserInfoResult(){UserFound = false};
         }
-        return new GetUserInfoResult() {UserFound = true, User = await userStorage.GetUserByUsername(request.Username)};
+
+        UserToShow user = new UserToShow(await userStorage.GetUserByUsername(request.Username));
+        return new GetUserInfoResult() {UserFound = true, User = user};
     }
 }

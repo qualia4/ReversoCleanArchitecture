@@ -12,4 +12,8 @@
       <ProjectReference Include="..\Reverso.Domain.Web\Reverso.Domain.Web.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MongoDB.Driver" Version="2.25.0" />
+    </ItemGroup>
+
 </Project>
