@@ -171,7 +171,7 @@ public class ReversoField: IGameField
         return newField;
     }
 
-    public Player GetHost(int x, int y)
+    public Player? GetHost(int x, int y)
     {
         if (IsInBounds(x, y) && !Cells[x, y].IfEmpty)
         {

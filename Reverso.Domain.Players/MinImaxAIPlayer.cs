@@ -30,12 +30,13 @@ public class MinimaxAIPlayer : Player
 
     private (int Score, (int xCoord, int yCoord)? Move) Minimax(IGameField gameField, int depth, bool maximizingPlayer, int alpha, int beta)
     {
-        if (depth == 0 || !gameField.HasValidMoves())
+        Player? opponent = GetOpponent(gameField);
+        (int xCoord, int yCoord)? bestMove = null;
+        if (depth == 0 || !gameField.HasValidMoves() || opponent == null)
         {
-            return (EvaluateBoard(gameField, this), null);
+            return (EvaluateBoard(gameField, this), bestMove);
         }
 
-        (int xCoord, int yCoord)? bestMove = null;
         var possibleMoves = GetAllValidMoves(gameField);
 
         if (maximizingPlayer)
@@ -45,6 +46,7 @@ public class MinimaxAIPlayer : Player
             {
                 var simulationGameField = gameField.DeepClone();
                 simulationGameField.ChangeField(x, y, this);
+                simulationGameField.ChangeValid(opponent);
                 var eval = Minimax(simulationGameField, depth - 1, false, alpha, beta).Score;
                 if (eval > maxEval)
                 {
@@ -63,7 +65,8 @@ public class MinimaxAIPlayer : Player
             foreach (var (x, y) in possibleMoves)
             {
                 var simulationGameField = gameField.DeepClone();
-                simulationGameField.ChangeField(x, y, this);
+                simulationGameField.ChangeField(x, y, opponent);
+                simulationGameField.ChangeValid(this);
                 var eval = Minimax(simulationGameField, depth - 1, true, alpha, beta).Score;
                 if (eval < minEval)
                 {
@@ -108,5 +111,21 @@ public class MinimaxAIPlayer : Player
             }
         }
         return score;
+    }
+
+    private Player? GetOpponent(IGameField gameField)
+    {
+        for (int i = 0; i < gameField.GetSize(); i++)
+        {
+            for (int j = 0; j < gameField.GetSize(); j++)
+            {
+                Player? potentialOpponent = gameField.GetHost(i, j);
+                if (potentialOpponent != null && potentialOpponent != this)
+                {
+                    return potentialOpponent;
+                }
+            }
+        }
+        return null;
     }
 }
