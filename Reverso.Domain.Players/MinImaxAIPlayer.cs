@@ -6,7 +6,7 @@ public class MinimaxAIPlayer : Player
 {
     private readonly Random rand = new Random();
     private readonly bool makeDelay;
-    private const int MaxDepth = 5;
+    private const int MaxDepth = 3;
 
     public MinimaxAIPlayer(string name, bool makeDelay = true) : base(name)
     {
