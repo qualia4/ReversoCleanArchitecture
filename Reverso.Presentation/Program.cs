@@ -18,6 +18,17 @@ builder.Services.AddMediatR(cfg =>
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssemblyContaining<Reverso.Presentation.Controllers.AuthController>());
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        corsPolicyBuilder =>
+        {
+            corsPolicyBuilder.WithOrigins("http://localhost:3000")
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,5 +39,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting(); // Make sure routing is set up before applying CORS
+app.UseCors("AllowSpecificOrigin");
+
 app.MapControllers();
 app.Run();
