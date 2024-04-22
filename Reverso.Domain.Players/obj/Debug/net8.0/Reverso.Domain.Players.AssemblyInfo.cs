@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Reverso.Domain.Players")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e3614a48935458d1c35969417dacb141f825daac")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4eccf6d339fecd7d4f3bdfcbe77b226fb5274e0e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Reverso.Domain.Players")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Reverso.Domain.Players")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

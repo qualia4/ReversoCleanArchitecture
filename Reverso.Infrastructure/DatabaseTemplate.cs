@@ -43,14 +43,26 @@ public class DatabaseTemplate
 
         Users.TryGetValue(winner, out var winnerUser);
         Users.TryGetValue(loser, out var loserUser);
-        if (maxPoints == minPoints)
+        if (winnerUser != null)
         {
-            winnerUser.AddDraw();
-            loserUser.AddDraw();
-            return;
+            if (maxPoints == minPoints)
+            {
+                winnerUser.AddDraw();
+                loserUser.AddDraw();
+                return;
+            }
+            winnerUser.AddVictory();
+            loserUser.AddLoss();
         }
-        winnerUser.AddVictory();
-        loserUser.AddLoss();
+        else
+        {
+            if (maxPoints == minPoints)
+            {
+                loserUser.AddDraw();
+                return;
+            }
+            loserUser.AddLoss();
+        }
     }
 
     public Task AddLobby(Lobby lobbyToAdd)

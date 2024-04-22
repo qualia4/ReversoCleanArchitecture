@@ -69,7 +69,7 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
     {
         Lobby lobby = new Lobby(false);
         lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler(playerUsername))));
-        lobby.AddPlayer(new LobbyPlayer("BOT", new AIPlayer("BOT")));
+        lobby.AddPlayer(new LobbyPlayer("BOT", new AIPlayer("BOT", false)));
         lobby.StartGame();
         await lobbyStorage.AddAsync(lobby);
         return lobby;
@@ -79,7 +79,7 @@ public class PlayCommandUseCase : IRequestHandler<PlayCommand, PlayResult>
     {
         Lobby lobby = new Lobby(false);
         lobby.AddPlayer(new LobbyPlayer(playerUsername, new HumanPlayer(playerUsername, new HumanMoveHandler(playerUsername))));
-        lobby.AddPlayer(new LobbyPlayer("MMBOT", new MinimaxAIPlayer("MMBOT")));
+        lobby.AddPlayer(new LobbyPlayer("MMBOT", new MinimaxAIPlayer("MMBOT", false)));
         lobby.StartGame();
         await lobbyStorage.AddAsync(lobby);
         return lobby;
