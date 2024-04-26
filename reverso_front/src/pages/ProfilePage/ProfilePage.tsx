@@ -60,7 +60,7 @@ const ProfilePage: React.FC = () => {
             <h1 className="page-title">Main Menu</h1>
             <button className="button" onClick={() => handlePlayClick("pvp")}>Play PvP</button>
             <button className="button" onClick={() => handlePlayClick("pve")}>Play PvE</button>
-            <button className="button" onClick={() => handlePlayClick("pvmm")}>Play Minimax</button>
+            <button className="button" onClick={() => handlePlayClick("pvmm")}>Play Minimax PvE</button>
             <button className="button" onClick={handleShowStatsClick}>Show Stats</button>
             {showStatsModal && (
                 <div className="modal-background" onClick={closeModal}>

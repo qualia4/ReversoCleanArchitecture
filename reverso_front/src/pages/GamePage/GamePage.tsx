@@ -5,6 +5,7 @@ import { getGameInfo } from "../../api/getGameInfo";
 import { makeMoveService } from "../../api/makeMoveService";
 import { getChatService } from "../../api/getChatService";
 import { writeMessageService } from "../../api/writeMessageService";
+import './GamePage.css';
 
 interface ChatMessage {
     username: string;
@@ -88,23 +89,21 @@ const GamePage: React.FC = () => {
         const playerKeys = gameState && Object.keys(gameState.points);
         const firstPlayer = playerKeys && playerKeys[0];
 
-        let backgroundColor = 'lightgray';
+        // Determine the CSS class based on the cell value
+        let cellClass = 'game-cell';
         if (cell === '*') {
-            backgroundColor = gameState?.currentPlayerName === jsonData?.usernameJSON ? 'yellow' : 'lightgray';
+            cellClass += gameState?.currentPlayerName === jsonData?.usernameJSON ? ' game-cell-playable' : '';
         } else if (cell !== '-' && cell !== '*') {
-            backgroundColor = (cell === firstPlayer ? 'black' : 'white');
+            cellClass += (cell === firstPlayer ? ' game-cell-first-player' : ' game-cell-second-player');
         }
 
         return (
-            <button key={x} style={{
-                width: '30px', height: '30px', margin: '1px',
-                backgroundColor: backgroundColor,
-                color: 'transparent'
-            }} onClick={() => cell === '*' && handleMove(x, y)}>
+            <button key={`${x}-${y}`} className={cellClass} onClick={() => cell === '*' && handleMove(x, y)}>
                 {' '}
             </button>
         );
     };
+
 
     const renderModal = () => {
         if (!gameState || !gameState.gameEnded) return null;
@@ -116,19 +115,18 @@ const GamePage: React.FC = () => {
                     <h2>Game Over</h2>
                     <p>{`Winner: ${winner}`}</p>
                     <p>{`Score: ${Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(', ')}`}</p>
-                    <button onClick={() => navigate('/profile')}>Go to Profile</button>
+                    <button className="game-button" onClick={() => navigate('/profile')}>Go to Profile</button>
                 </div>
             </div>
         );
     };
 
     return (
-        <div>
-            <h1>Game Page</h1>
+        <div className="game-container">
+            <h1 className="game-title">Game Page</h1>
             {renderModal()}
-            <h2>{jsonData?.usernameJSON}</h2>
             {error && <p className="error">{error}</p>}
-            <div>
+            <div className="game-board">
                 {gameState?.field.map((row: string[], y: number) => (
                     <div key={y} style={{ display: 'flex' }}>
                         {row.map((cell, x) => renderCell(cell, x, y))}
@@ -138,10 +136,10 @@ const GamePage: React.FC = () => {
             <div>Score - {gameState?.points && Object.keys(gameState.points).map(player => `${player}: ${gameState.points[player]}`).join(' ')} </div>
             <div>Current Player: {gameState?.currentPlayerName}</div>
             <div className="chat-section">
-                <h3>Chat</h3>
-                <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message..." />
-                <button onClick={handleSendMessage}>Send</button>
-                <div className="messages">
+                <h3 className="chat-title">Chat</h3>
+                <input className="chat-input" type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message..." />
+                <button className="game-button" onClick={handleSendMessage}>Send</button>
+                <div className="chat-messages">
                     {chat.slice().reverse().map((msg, index) => (
                         <p key={index}><strong>{msg.username}</strong> [{msg.time}]: {msg.text}</p>
                     ))}

@@ -55,10 +55,10 @@ const LoginPage: React.FC = () => {
                 placeholder="Password"
             />
             <button className="login-button" onClick={handleLoginClick} disabled={loading}>
-                {loading ? 'Loading...' : 'Log In'}
+                Log In
             </button>
             <button className="login-button" onClick={handleRegisterClick} disabled={loading}>
-                {loading ? 'Loading...' : 'Register'}
+                Register
             </button>
             {displayedText && <p className="error-message">{displayedText}</p>}
             {loading && <div className="loader"></div>}

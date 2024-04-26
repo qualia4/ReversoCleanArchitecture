@@ -1,15 +1,114 @@
-.modal {
+/* GamePage.css */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    padding: 20px;
+    background-color: #f4f4f9;
+}
+
+.game-title {
+    color: #333;
+    margin: 20px;
+    font-size: 2rem;
+}
+
+.game-board {
+
+}
+
+.game-cell {
+    width: 30px;
+    height: 30px;
+    margin: 1px;
+    border-radius: 50%; /* Makes the cell circular */
+    background-color: lightgray;
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.game-cell:hover {
+    transform: scale(1.1); /* Slight increase in size on hover for interactivity */
+}
+
+.game-cell-playable {
+    border-color: grey; /* Light background for playable cells */
+}
+
+.game-cell-first-player {
+    background-color: #3498db; /* Blue for the first player */
+    color: white; /* Ensures text (if any) is visible */
+}
+
+.game-cell-second-player {
+    background-color: #e74c3c; /* Red for the second player */
+    color: white; /* Ensures text (if any) is visible */
+}
+
+.modal-background {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1000;
+}
+
+.modal-content {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-section {
+    margin-top: 10px;
     width: 300px;
-    text-align: center;
+}
+
+.chat-messages {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.error {
+    color: #cc0000;
+}
+
+.chat-input,
+.game-button {
+    width: 100%;
+    padding: 12px; /* Increased padding for better aesthetics */
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chat-input {
+    border: 2px solid #ccc;
+    border-radius: 10px; /* Rounded corners for input fields */
+    max-width: 300px;
+}
+
+.game-button:hover {
+    background-color: #4a54e1;
+}
+
+.game-button{
+    color: white;
+    background-color: #5c67f2;
+    border: none;
+    border-radius: 20px; /* Rounded corners for buttons */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 5px; /* Increased margin for spacing between buttons */
+    max-width: 150px;
 }
 
 .overlay {
