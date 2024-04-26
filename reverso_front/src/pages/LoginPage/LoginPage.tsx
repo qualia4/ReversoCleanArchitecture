@@ -1,76 +1,72 @@
-import React, {useState} from 'react';
-import { useMyContext } from '../../MyContext';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {registerService} from "../../api/registerService";
-import {loginService} from "../../api/loginService";
-import { CSSProperties } from 'react';
+import { useMyContext } from '../../MyContext';
+import { loginService } from '../../api/loginService';
+import { registerService } from '../../api/registerService';
+import './LoginPage.css'; // Ensure the CSS file is correctly imported
 
-const LoginPage : React.FC = () => {
+const LoginPage: React.FC = () => {
     const navigate = useNavigate();
     const { updateJsonData } = useMyContext();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [displayedText, setDisplayedText] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleLoginClick = async () => {
+        setLoading(true);
         try {
             await loginService(username, password);
-            updateJsonData({
-                usernameJSON: username,
-            })
-            navigate('profile')
+            updateJsonData({ usernameJSON: username });
+            navigate('/profile');
         } catch (error) {
-            if (error instanceof Error) { // Type-safe error handling
-                setDisplayedText("Login failed. Wrong username or password"); // Display error message
-            } else {
-                setDisplayedText('An unexpected error occurred');
-            }
+            setDisplayedText(error instanceof Error ? "Login failed. Wrong username or password" : "An unexpected error occurred");
         }
+        setLoading(false);
     };
 
     const handleRegisterClick = async () => {
+        setLoading(true);
         try {
             await registerService(username, password);
-            updateJsonData({
-                usernameJSON: username,
-            })
-            navigate('profile')
+            updateJsonData({ usernameJSON: username });
+            navigate('/profile');
         } catch (error) {
-            if (error instanceof Error) { // Type-safe error handling
-                setDisplayedText("Register failed. Username already exists"); // Display error message
-            } else {
-                setDisplayedText('An unexpected error occurred');
-            }
+            setDisplayedText(error instanceof Error ? "Register failed. Username already exists" : "An unexpected error occurred");
         }
+        setLoading(false);
     };
 
     return (
-        <div>
-            <h1>Login Page</h1>
-            <p></p>
+        <div className="login-container">
+            <h2 className="login-title">Login Page</h2>
             <input
+                className="login-input"
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={e => setUsername(e.target.value)}
                 placeholder="Username"
             />
-            <p></p>
             <input
-                type="text"
+                className="login-input"
+                type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={e => setPassword(e.target.value)}
                 placeholder="Password"
             />
-            <p>
-                <button onClick={handleLoginClick}>Login</button>
-            </p>
-            <p>
-                <button onClick={handleRegisterClick}>Register</button>
-            </p>
-            {displayedText &&<p>{displayedText}</p>}
+            <button className="login-button" onClick={handleLoginClick} disabled={loading}>
+                {loading ? 'Loading...' : 'Log In'}
+            </button>
+            <button className="login-button" onClick={handleRegisterClick} disabled={loading}>
+                {loading ? 'Loading...' : 'Register'}
+            </button>
+            {displayedText && <p className="error-message">{displayedText}</p>}
+            {loading && <div className="loader"></div>}
         </div>
-
     );
 }
 
 export default LoginPage;
+
+
+
