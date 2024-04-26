@@ -53,8 +53,8 @@
     border: 4px solid #f3f3f3; /* Light grey */
     border-top: 4px solid #5c67f2; /* Blue */
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     animation: spin 500ms linear infinite;
 }
 

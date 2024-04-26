@@ -1,0 +1,79 @@
+/* ProfilePage.css */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.page-title {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.button {
+    width: 100%;
+    max-width: 200px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    background-color: #5c67f2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button:hover {
+    background-color: #4a54e1;
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center modal on the screen */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Optional: set a max width */
+    max-width: 500px; /* Limit modal width for larger screens */
+    z-index: 1001; /* Above the modal background */
+    text-align: center; /* Center-align text inside the modal */
+}
+
+.statistics-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.loader {
+    border: 4px solid #f3f3f3; /* Light grey */
+    border-top: 4px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
