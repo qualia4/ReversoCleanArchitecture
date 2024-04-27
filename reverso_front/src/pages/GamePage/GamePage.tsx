@@ -117,11 +117,12 @@ const GamePage: React.FC = () => {
         const points = gameState.points;
         const winner = Object.keys(points).reduce((a, b) => points[a] > points[b] ? a : b);
         return (
-            <div style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="game-stats" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '5px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
                     <h2>Game Over</h2>
-                    <p>{`Winner: ${winner}`}</p>
-                    <p>{`Score: ${Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(', ')}`}</p>
+                    <h3>{`Winner: ${winner}`}</h3>
+                    <h3>Score:</h3>
+                    <p>{Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(' ')}</p>
                     <button className="game-button" onClick={() => navigate('/profile')}>Go to Profile</button>
                 </div>
             </div>
@@ -130,7 +131,19 @@ const GamePage: React.FC = () => {
 
     return (
         <div className="game-container">
-            <h1 className="game-title">Game Page</h1>
+            <div className="game-stats">
+                <h3>Score:</h3>
+                {gameState && Object.keys(gameState.points || {}).map((player, index) => (
+                    <p key={player} style={{
+                        color: 'white',
+                        backgroundColor: index === 0 ? '#3498db' : '#e74c3c',
+                        padding: '5px',
+                        borderRadius: '5px'
+                    }}>
+                        {`${player}: ${gameState.points[player]}`}
+                    </p>
+                ))}
+            </div>
             {renderModal()}
             {error && <p className="error">{error}</p>}
             <div className="game-board">
@@ -140,12 +153,22 @@ const GamePage: React.FC = () => {
                     </div>
                 ))}
             </div>
-            <div>Score - {gameState?.points && Object.keys(gameState.points).map(player => `${player}: ${gameState.points[player]}`).join(' ')} </div>
-            <div>Current Player: {gameState?.currentPlayerName}</div>
+            <div className="game-stats">
+                <p style={{
+                    color: 'white',
+                    padding: '5px',
+                    borderRadius: '5px',
+                    backgroundColor: gameState && Object.keys(gameState.points || {})[0] === gameState.currentPlayerName ? '#3498db' : '#e74c3c'
+                }}>
+                    {gameState?.currentPlayerName === jsonData.usernameJSON ? "Your turn" : `${gameState?.currentPlayerName}'s turn`}
+                </p>
+            </div>
             <div className="chat-section">
                 <h3 className="chat-title">Chat</h3>
-                <input className="chat-input" type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message..." />
-                <button className="game-button" onClick={handleSendMessage}>Send</button>
+                <span>
+                    <input className="chat-input" type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message..." />
+                    <button className="game-button" onClick={handleSendMessage}>Send</button>
+                </span>
                 <div className="chat-messages">
                     {chat.slice().reverse().map((msg, index) => (
                         <p key={index}><strong>{msg.username}</strong> [{msg.time}]: {msg.text}</p>
