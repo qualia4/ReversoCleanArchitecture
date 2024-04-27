@@ -35,7 +35,15 @@
 }
 
 .game-cell-playable {
-    border-color: grey; /* Light background for playable cells */
+    border-color: grey;
+}
+
+.first-player-border {
+    border-color: #3498db;
+}
+
+.second-player-border {
+    border-color: #e74c3c;
 }
 
 .game-cell-first-player {

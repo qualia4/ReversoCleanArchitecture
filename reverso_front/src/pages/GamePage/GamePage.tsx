@@ -92,7 +92,14 @@ const GamePage: React.FC = () => {
         // Determine the CSS class based on the cell value
         let cellClass = 'game-cell';
         if (cell === '*') {
-            cellClass += gameState?.currentPlayerName === jsonData?.usernameJSON ? ' game-cell-playable' : '';
+            if(gameState?.currentPlayerName === jsonData?.usernameJSON){
+                cellClass += ' game-cell-playable'
+                if (gameState?.currentPlayerName === firstPlayer) {
+                    cellClass += ' first-player-border';
+                } else {
+                    cellClass += ' second-player-border';
+                }
+            }
         } else if (cell !== '-' && cell !== '*') {
             cellClass += (cell === firstPlayer ? ' game-cell-first-player' : ' game-cell-second-player');
         }
