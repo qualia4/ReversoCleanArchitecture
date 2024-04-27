@@ -124,6 +124,25 @@
     max-width: 150px;
 }
 
+.score-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-box {
+    width: 40px;  /* Fixed width for each score box */
+    height: 30px; /* Fixed height to ensure boxes are of equal size */
+    line-height: 30px; /* Centers text vertically */
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 0 5px; /* Adds space between the score boxes */
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
 .overlay {
     position: fixed;
     top: 0;

@@ -133,16 +133,16 @@ const GamePage: React.FC = () => {
         <div className="game-container">
             <div className="game-stats">
                 <h3>Score:</h3>
-                {gameState && Object.keys(gameState.points || {}).map((player, index) => (
-                    <p key={player} style={{
-                        color: 'white',
-                        backgroundColor: index === 0 ? '#3498db' : '#e74c3c',
-                        padding: '5px',
-                        borderRadius: '5px'
-                    }}>
-                        {`${player}: ${gameState.points[player]}`}
-                    </p>
-                ))}
+                <div className="score-container">
+                    {gameState && Object.keys(gameState.points || {}).map((player, index) => (
+                        <p key={player} className="score-box" style={{
+                            backgroundColor: index === 0 ? '#3498db' : '#e74c3c',
+                        }}>
+                            {gameState.points[player]}
+                        </p>
+                    ))}
+                    {gameState && Object.keys(gameState.points || {}).length === 2}
+                </div>
             </div>
             {renderModal()}
             {error && <p className="error">{error}</p>}
