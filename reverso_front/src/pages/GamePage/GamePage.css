@@ -24,6 +24,25 @@
 
 }
 
+.chat-section .chat-controls {
+    display: flex;
+    align-items: center;
+}
+
+.chat-section .chat-input {
+    flex-grow: 1;
+    margin-right: 8px;  /* Adds some space between the input and the button */
+}
+
+.chat-button {
+    flex-shrink: 0; /* Prevents the button from shrinking */
+    width: 20%;
+    padding: 10px; /* Increased padding for better aesthetics */
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
 .game-cell {
     width: 30px;
     height: 30px;
@@ -83,7 +102,7 @@
 
 .chat-section {
     margin-top: 10px;
-    width: 300px;
+    width: 400px;
 }
 
 .chat-messages {
@@ -109,19 +128,20 @@
     max-width: 300px;
 }
 
-.game-button:hover {
+.chat-button:hover {
     background-color: #4a54e1;
 }
 
-.game-button{
+.chat-button{
     color: white;
     background-color: #5c67f2;
     border: none;
-    border-radius: 20px; /* Rounded corners for buttons */
+    border-radius: 15px; /* Rounded corners for buttons */
     cursor: pointer;
     transition: background-color 0.3s;
     margin-bottom: 5px; /* Increased margin for spacing between buttons */
     max-width: 150px;
+    height: 100%;
 }
 
 .score-container {

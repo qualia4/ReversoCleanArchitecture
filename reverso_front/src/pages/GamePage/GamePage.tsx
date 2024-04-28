@@ -119,10 +119,16 @@ const GamePage: React.FC = () => {
         return (
             <div className="game-stats" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '5px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-                    <h2>Game Over</h2>
-                    <h3>{`Winner: ${winner}`}</h3>
+                    <h2 style={{
+                        color: 'white',
+                        padding: '5px',
+                        borderRadius: '10px',
+                        backgroundColor: gameState && Object.keys(gameState.points || {})[0] === winner ? '#3498db' : '#e74c3c'
+                    }}>
+                        {winner === jsonData.usernameJSON ? "You won!" : `${winner} won!`}
+                    </h2>
                     <h3>Score:</h3>
-                    <p>{Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(' ')}</p>
+                    <p style={{fontWeight : "bold"}}>{Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(' ')}</p>
                     <button className="game-button" onClick={() => navigate('/profile')}>Go to Profile</button>
                 </div>
             </div>
@@ -165,13 +171,23 @@ const GamePage: React.FC = () => {
             </div>
             <div className="chat-section">
                 <h3 className="chat-title">Chat</h3>
-                <span>
+                <div className="chat-controls">
                     <input className="chat-input" type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Type a message..." />
-                    <button className="game-button" onClick={handleSendMessage}>Send</button>
-                </span>
+                    <button className="chat-button" onClick={handleSendMessage}>Send</button>
+                </div>
                 <div className="chat-messages">
                     {chat.slice().reverse().map((msg, index) => (
-                        <p key={index}><strong>{msg.username}</strong> [{msg.time}]: {msg.text}</p>
+                        <p key={index}>
+                            <span style={{
+                                backgroundColor: (gameState && Object.keys(gameState.points || {})[0] === msg.username) ? '#3498db' : '#e74c3c',
+                                color: 'white',
+                                padding: '2px 4px',
+                                borderRadius: '4px',
+                                fontWeight: "normal"
+                            }}>
+                                {msg.username}
+                            </span> [{msg.time}]: {msg.text}
+                        </p>
                     ))}
                 </div>
             </div>
