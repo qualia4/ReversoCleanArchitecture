@@ -117,23 +117,21 @@ const GamePage: React.FC = () => {
         const points = gameState.points;
         const winner = Object.keys(points).reduce((a, b) => points[a] > points[b] ? a : b);
         return (
-            <div className="game-stats" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <div style={{ backgroundColor: 'white', padding: '20px', borderRadius: '5px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)' }}>
-                    <h2 style={{
-                        color: 'white',
-                        padding: '5px',
-                        borderRadius: '10px',
+            <div className="modal-background">
+                <div className="modal-content">
+                    <h2 className="modal-header" style={{
                         backgroundColor: gameState && Object.keys(gameState.points || {})[0] === winner ? '#3498db' : '#e74c3c'
                     }}>
                         {winner === jsonData.usernameJSON ? "You won!" : `${winner} won!`}
                     </h2>
                     <h3>Score:</h3>
-                    <p style={{fontWeight : "bold"}}>{Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(' ')}</p>
+                    <p style={{ fontWeight: "bold" }}>{Object.entries(points).map(([player, score]) => `${player}: ${score}`).join(' ')}</p>
                     <button className="game-button" onClick={() => navigate('/profile')}>Go to Profile</button>
                 </div>
             </div>
         );
     };
+
 
     return (
         <div className="game-container">

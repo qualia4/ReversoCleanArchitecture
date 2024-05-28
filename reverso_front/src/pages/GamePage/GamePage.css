@@ -120,6 +120,16 @@
     padding: 12px; /* Increased padding for better aesthetics */
     margin: 10px 0;
     font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.game-button{
+    color: white;
+    background-color: #5c67f2;
+    border: none;
+    border-radius: 15px;
+    width: 50%;
 }
 
 .chat-input {
@@ -128,7 +138,7 @@
     max-width: 300px;
 }
 
-.chat-button:hover {
+.chat-button:hover, .game-button:hover {
     background-color: #4a54e1;
 }
 
@@ -163,12 +173,41 @@
     font-weight: bold;
 }
 
-.overlay {
+.modal-background {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transform: scale(1); /* Apply initial scale */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+    text-align: center;
+}
+
+.modal-background:hover {
+    transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1); /* Apply initial scale */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.modal-content:hover {
+    transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+.modal-header {
+    color: white;
+    padding: 5px;
+    border-radius: 10px;
 }
