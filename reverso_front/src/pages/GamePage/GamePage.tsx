@@ -6,7 +6,7 @@ import { makeMoveService } from "../../api/makeMoveService";
 import { getChatService } from "../../api/getChatService";
 import { writeMessageService } from "../../api/writeMessageService";
 import './GamePage.css';
-
+//test commit
 interface ChatMessage {
     username: string;
     text: string;
